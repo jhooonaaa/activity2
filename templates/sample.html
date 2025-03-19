@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headlines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fceef5;
+            color: #5a3e36;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .article {
+            background: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .article h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #5a3e36;
+        }
+
+        .article p {
+            color: #8b5e57;
+            font-size: 14px;
+        }
+
+        .article a {
+            text-decoration: none;
+            color: #d36b72;
+            font-weight: bold;
+        }
+
+        .article a:hover {
+            text-decoration: underline;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #a66b69;
+            margin-bottom: 10px;
+        }
+
+        .article:nth-child(even) {
+            background-color: #fae1dd;
+        }
+
+        .article:hover {
+            background-color: #f8d3c5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Headlines</h1>
+        {% for article in Article %}
+        <div class="article">
+            <h2><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h2>
+            <p class="article-meta"><i>Published: {{ article.published }}</i></p>
+            <p>{{ article.summary }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
